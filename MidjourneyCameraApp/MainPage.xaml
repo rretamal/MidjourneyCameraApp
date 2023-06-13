@@ -1,41 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MidjourneyCameraApp.MainPage">
-
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+             xmlns:tabs="http://sharpnado.com"
+             x:Class="MidjourneyCameraApp.MainPage" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Gray900">#212121</Color>
+            <Color x:Key="White">#fefefe</Color>
+            <Style x:Key="MaterialTabStyle" TargetType="tabs:MaterialUnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="{StaticResource Primary}" />
+                <Setter Property="IconSize" Value="24" />
+                <Setter Property="FontFamily" Value="OpenSansRegular" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="UnderlineAllTab" Value="True" />
+                <Setter Property="UnselectedLabelColor" Value="{StaticResource Gray200}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <Image Source="living2.png" Aspect="Fill" Margin="0"/>
+        <Grid HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.1,0,1,.9" AbsoluteLayout.LayoutFlags="All">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="My Camera Viewer" TextColor="Black" Margin="15,20,0,0" FontSize="20"></Label>
+            <Frame Grid.Row="1" BackgroundColor="Black" Opacity="0.7" Margin="10,20,10,0" CornerRadius="20" HeightRequest="60" >
+                
+            </Frame>
+        </Grid>
+        <Frame BackgroundColor="Black" Opacity="0.4" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5,0.9,390,250" AbsoluteLayout.LayoutFlags="PositionProportional">
+            
+        </Frame>
+        <Grid AbsoluteLayout.LayoutBounds="0.5,1,390,160"
+                AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" HasShadow="True" BackgroundColor="{StaticResource White}" HeightRequest="60" Margin="15,0,15,-10" CornerRadius="15" BorderColor="Transparent">
+                <Frame.Shadow>
+                    <Shadow Brush="Black"
+                Offset="60,60"
+                Radius="80"
+                Opacity="0.8" />
+                </Frame.Shadow>
+            </Frame>
+            <Frame HasShadow="True" Grid.Row="1" BackgroundColor="{StaticResource White}" BorderColor="#fbefea">
+                <Frame.Shadow>
+                    <Shadow Brush="Black"
+                Offset="60,60"
+                Radius="80"
+                Opacity="0.8" />
+                </Frame.Shadow>
+                <tabs:TabHostView  x:Name="TabHost" HeightRequest="100">
+                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
+                                                            IconImageSource="list_96.png"
+                                                            IconOptions="TopIcon"
+                                                            IconTextSpacing="0"
+                                                            Label="Super" />
+                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
+                                                            IconImageSource="theme_96.png"
+                                                            IconOptions="IconOnly" />
+                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
+                                                            IconImageSource="grid_view_96.png"
+                                                            IconOptions="TopIcon"
+                                                            IconTextSpacing="20"
+                                                            Label="MAUI" />
+                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
+                                                            Padding="10,0"
+                                                            IconImageSource="house_96.png"
+                                                            IconOptions="TextOnly"
+                                                            Label="Sample" />
+                </tabs:TabHostView>
+            </Frame>
+        </Grid>
+    </AbsoluteLayout>
 </ContentPage>
