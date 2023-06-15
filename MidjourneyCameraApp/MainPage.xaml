@@ -24,15 +24,41 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Text="My Camera Viewer" TextColor="Black" Margin="15,20,0,0" FontSize="20"></Label>
-            <Frame x:Name="frame" Grid.Row="1" Margin="10,20,10,0" CornerRadius="20" HeightRequest="60" >
-                <StackLayout Orientation="Horizontal">
-                    <Frame HorizontalOptions="EndAndExpand" BackgroundColor="#ff7052" BorderColor="Transparent" CornerRadius="20" HeightRequest="40" WidthRequest="40"></Frame>
+            <Label Text="My Camera Viewer" TextColor="White" Margin="20,20,0,0" FontSize="20" FontAttributes="Bold"></Label>
+            <Frame x:Name="frame" Grid.Row="1" Padding="0" Margin="10,20,10,0" CornerRadius="20" HeightRequest="60" BackgroundColor="#80000000">                
+                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                    <Label Text="Type your Search" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,0,0" FontSize="15"></Label>
+                    <Frame HorizontalOptions="EndAndExpand" BackgroundColor="#ff7052" BorderColor="Transparent" CornerRadius="40" HeightRequest="40" WidthRequest="40" Margin="0,0,20,0" Padding="0">
+                        <Image HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image.Source>
+                                <FontImageSource
+                                FontFamily="FASolid"
+                                Glyph="{StaticResource search}"
+                                Color="White"
+                                Size="15"/>
+                            </Image.Source>
+                        </Image>
+                    </Frame>
                 </StackLayout>
             </Frame>
         </Grid>
-        <Frame BackgroundColor="Black" Opacity="0.4" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5,0.9,390,250" AbsoluteLayout.LayoutFlags="PositionProportional">
-            
+        <Label Text="Living room" TextColor="White" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0.1,5.7,0.8,.9" AbsoluteLayout.LayoutFlags="All"></Label>
+        <Frame CornerRadius="0" Padding="0" BackgroundColor="#60000000" BorderColor="Transparent" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5,0.9,400,250" AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Frame x:Name="messageFrame" Padding="0" CornerRadius="5" BackgroundColor="#2c2932" BorderColor="Transparent" HeightRequest="110" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >                    
+                    <Frame HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#ff7052" BorderColor="Transparent" CornerRadius="40" HeightRequest="80" WidthRequest="80" Margin="20,0,0,0">
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource
+                                FontFamily="FASolid"
+                                Glyph="{StaticResource exclamation}"
+                                Color="White"
+                                Size="24"/>
+                            </Image.Source>
+                        </Image>
+                    </Frame>
+                </StackLayout>
+            </Frame>
         </Frame>
         <Grid AbsoluteLayout.LayoutBounds="0.5,1,390,160"
                 AbsoluteLayout.LayoutFlags="PositionProportional">
