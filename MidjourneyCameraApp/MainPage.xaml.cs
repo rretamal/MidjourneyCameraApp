@@ -8,6 +8,8 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 		NavigationPage.SetHasNavigationBar(this, false);
+
+		frame.BackgroundColor = Color.FromRgba(0, 0, 0, 100);
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)
