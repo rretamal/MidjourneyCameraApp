@@ -7,13 +7,13 @@
         <ResourceDictionary>
             <Color x:Key="Gray900">#212121</Color>
             <Color x:Key="White">#fefefe</Color>
+            <Color x:Key="MenuGray">#4b4b51</Color>
+            <Color x:Key="Orange">#ff7052</Color>
             <Style x:Key="MaterialTabStyle" TargetType="tabs:MaterialUnderlinedTabItem">
                 <Setter Property="SelectedTabColor" Value="{StaticResource Primary}" />
                 <Setter Property="IconSize" Value="24" />
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
                 <Setter Property="LabelSize" Value="14" />
-                <Setter Property="UnderlineAllTab" Value="True" />
-                <Setter Property="UnselectedLabelColor" Value="{StaticResource Gray200}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -28,7 +28,7 @@
             <Frame x:Name="frame" Grid.Row="1" Padding="0" Margin="10,20,10,0" CornerRadius="20" HeightRequest="60" BackgroundColor="#80000000">                
                 <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
                     <Label Text="Type your Search" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Margin="20,0,0,0" FontSize="15"></Label>
-                    <Frame HorizontalOptions="EndAndExpand" BackgroundColor="#ff7052" BorderColor="Transparent" CornerRadius="40" HeightRequest="40" WidthRequest="40" Margin="0,0,20,0" Padding="0">
+                    <Frame HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource Orange}" BorderColor="Transparent" CornerRadius="40" HeightRequest="40" WidthRequest="40" Margin="0,0,20,0" Padding="0">
                         <Image HorizontalOptions="Center" VerticalOptions="Center">
                             <Image.Source>
                                 <FontImageSource
@@ -45,8 +45,8 @@
         <Label Text="Living room" TextColor="White" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0.1,5.7,0.8,.9" AbsoluteLayout.LayoutFlags="All"></Label>
         <Frame CornerRadius="0" Padding="0" BackgroundColor="#60000000" BorderColor="Transparent" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5,0.9,400,250" AbsoluteLayout.LayoutFlags="PositionProportional">
             <Frame x:Name="messageFrame" Padding="0" CornerRadius="5" BackgroundColor="#2c2932" BorderColor="Transparent" HeightRequest="110" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
-                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >                    
-                    <Frame HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#ff7052" BorderColor="Transparent" CornerRadius="40" HeightRequest="80" WidthRequest="80" Margin="20,0,0,0">
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >
+                    <Frame HorizontalOptions="Start" VerticalOptions="CenterAndExpand" BackgroundColor="{StaticResource Orange}" BorderColor="Transparent" CornerRadius="40" HeightRequest="80" WidthRequest="80" Margin="20,0,0,0">
                         <Image>
                             <Image.Source>
                                 <FontImageSource
@@ -57,6 +57,10 @@
                             </Image.Source>
                         </Image>
                     </Frame>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Margin="10,0,0,0" VerticalOptions="Center">
+                        <Label Text="Warning Title" TextColor="{StaticResource Orange}" FontSize="20" />
+                        <Label Text="Detail of the message indicating the error" TextColor="#72727a" FontSize="13" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </Frame>
@@ -73,33 +77,37 @@
                 Radius="80"
                 Opacity="0.8" />
                 </Frame.Shadow>
+                <Label Text="Current Status: Streaming cam" TextColor="{StaticResource MenuGray}"/>
             </Frame>
-            <Frame HasShadow="True" Grid.Row="1" BackgroundColor="{StaticResource White}" BorderColor="#fbefea">
+            <Frame HasShadow="True" Grid.Row="1" Padding="0" BackgroundColor="{StaticResource White}" BorderColor="#fbefea" HeightRequest="120">
                 <Frame.Shadow>
                     <Shadow Brush="Black"
                 Offset="60,60"
                 Radius="80"
                 Opacity="0.8" />
                 </Frame.Shadow>
-                <tabs:TabHostView  x:Name="TabHost" HeightRequest="100">
+                <tabs:TabHostView Padding="0"  x:Name="TabHost" VerticalOptions="CenterAndExpand">
                     <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
-                                                            IconImageSource="list_96.png"
-                                                            IconOptions="TopIcon"
-                                                            IconTextSpacing="0"
-                                                            Label="Super" />
-                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
-                                                            IconImageSource="theme_96.png"
-                                                            IconOptions="IconOnly" />
-                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
-                                                            IconImageSource="grid_view_96.png"
-                                                            IconOptions="TopIcon"
-                                                            IconTextSpacing="20"
-                                                            Label="MAUI" />
-                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
-                                                            Padding="10,0"
                                                             IconImageSource="house_96.png"
-                                                            IconOptions="TextOnly"
-                                                            Label="Sample" />
+                                                            IconOptions="TopIcon"
+                                                            IconTextSpacing="5"
+                                                            IconSize="35"
+                                                            UnselectedLabelColor="{StaticResource MenuGray}"                                                            
+                                                            Label="Live View" />
+                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
+                                                            IconImageSource="house_96.png"
+                                                            IconSize="35"
+                                                            IconOptions="TopIcon"
+                                                            IconTextSpacing="5"
+                                                            UnselectedLabelColor="{StaticResource MenuGray}"
+                                                            Label="Alerts" />
+                    <tabs:MaterialUnderlinedTabItem Style="{StaticResource MaterialTabStyle}"
+                                                            IconImageSource="house_96.png"
+                                                            IconOptions="TopIcon"
+                                                            IconTextSpacing="5"  
+                                                            IconSize="35"
+                                                            UnselectedLabelColor="{StaticResource MenuGray}"
+                                                            Label="Configuration" />
                 </tabs:TabHostView>
             </Frame>
         </Grid>
