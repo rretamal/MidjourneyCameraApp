@@ -6,4 +6,9 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+
+    private void Shell_Navigated(object sender, ShellNavigatedEventArgs e)
+    {
+
+    }
 }
