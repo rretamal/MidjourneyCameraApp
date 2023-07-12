@@ -30,6 +30,9 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -58,6 +61,8 @@
 	  <None Remove="Resources\Images\menu2.png" />
 	  <None Remove="Resources\Images\menu3.png" />
 	  <None Remove="Resources\Images\theme_96.png" />
+	  <None Remove="Images\" />
+	  <None Remove="Images\1_mYN3aXSpY5v5QnJ_CKfaCw.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -71,4 +76,10 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Images\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Images\1_mYN3aXSpY5v5QnJ_CKfaCw.png" />
+	</ItemGroup>
 </Project>
